@@ -5,6 +5,11 @@ import Icon from './Icon';
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+        e.preventDefault();
+        window.location.hash = path;
+    };
+
     return (
         <header className="bg-white shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-4 lg:px-8">
@@ -19,7 +24,7 @@ const Header: React.FC = () => {
                     </button>
 
                     {/* Logo */}
-                    <a href="#" className="flex-shrink-0">
+                    <a href="#/" onClick={(e) => handleNav(e, '/')} className="flex-shrink-0">
                         <img className="h-8 w-auto" src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="Udemy" />
                     </a>
 

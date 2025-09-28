@@ -1,4 +1,3 @@
-
 import { Course } from './types';
 
 export const COURSE_TABS = [
@@ -24,6 +23,51 @@ export const COURSES: { [key: string]: Course[] } = {
       originalPrice: '$84.99',
       bestseller: true,
       tag: 'Python',
+      subtitle: 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games.',
+      students: 1675333,
+      lastUpdated: '9/2023',
+      language: 'English',
+      whatYoullLearn: [
+        'Learn to use Python professionally, learning both Python 2 and Python 3!',
+        'Create games with Python, like Tic Tac Toe and Blackjack!',
+        'Learn advanced Python features, like the collections module and how to work with timestamps!',
+        'Learn to use Object Oriented Programming with classes!',
+        'Understand complex topics, like decorators.',
+        'Understand how to use both the Jupyter Notebook and create .py files.',
+        'Get an understanding of how to create GUIs in the Jupyter Notebook system!',
+        'Build a complete understanding of Python from the ground up!'
+      ],
+      requirements: [
+        'Access to a computer with an internet connection.'
+      ],
+      longDescription: 'Become a Python Programmer and learn one of employer\'s most requested skills of 2024! This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you both Python 2 and Python 3. With over 100 lectures and more than 21 hours of video this comprehensive course leaves no stone unturned! This course includes quizzes, tests, coding exercises and homework assignments as well as 3 major projects to create a Python project portfolio!.',
+      instructorBio: 'Jose Portilla has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science and programming. He has publications and patents in various fields such as microfluidics, materials science, and data science technologies. Over the course of his career he has developed a skill set in analyzing data and he hopes to use his experience in teaching and data science to help other people learn the power of programming, the ability to analyze data, and present the data in clear and beautiful visualizations. ',
+      courseContent: [
+        { 
+          sectionTitle: 'Course Introduction', 
+          lectures: [
+            { title: 'Course Introduction', duration: '08:22' },
+            { title: 'Course Curriculum Overview', duration: '04:55' }
+          ]
+        },
+        { 
+          sectionTitle: 'Python Setup',
+          lectures: [
+            { title: 'Command Line Basics', duration: '11:21' },
+            { title: 'Installing Python (Step by Step)', duration: '12:44' },
+            { title: 'Running Python Code', duration: '07:32' }
+          ]
+        },
+        { 
+          sectionTitle: 'Python Object and Data Structure Basics',
+          lectures: [
+            { title: 'Introduction to Python Data Types', duration: '03:12' },
+            { title: 'Numbers', duration: '08:55' },
+            { title: 'Strings', duration: '19:01' },
+            { title: 'Lists', duration: '15:32' }
+          ]
+        }
+      ]
     },
     {
       id: 2,
@@ -312,4 +356,15 @@ export const FOOTER_LINKS = {
     "Udemy Business": ["Teach on Udemy", "Get the app", "About us", "Contact us"],
     "Careers": ["Blog", "Help and Support", "Affiliate", "Investors"],
     "Terms": ["Privacy policy", "Cookie settings", "Sitemap", "Accessibility statement"],
+};
+
+export const findCourseById = (id: number): Course | undefined => {
+  for (const key in COURSES) {
+    const found = COURSES[key].find(course => course.id === id);
+    if (found) {
+      return found;
+    }
+  }
+  const foundInViewing = STUDENTS_VIEWING_COURSES.find(course => course.id === id);
+  return foundInViewing;
 };

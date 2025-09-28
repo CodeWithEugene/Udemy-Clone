@@ -1,4 +1,3 @@
-
 export interface Course {
   id: number;
   title: string;
@@ -10,4 +9,16 @@ export interface Course {
   originalPrice?: string;
   bestseller?: boolean;
   tag?: string;
+  subtitle?: string;
+  students?: number;
+  lastUpdated?: string;
+  language?: string;
+  whatYoullLearn?: string[];
+  requirements?: string[];
+  longDescription?: string;
+  instructorBio?: string;
+  courseContent?: {
+      sectionTitle: string;
+      lectures: { title: string; duration: string; }[]
+  }[];
 }

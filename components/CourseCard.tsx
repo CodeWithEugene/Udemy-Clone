@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Course } from '../types';
 import Icon from './Icon';
@@ -22,8 +21,13 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 };
 
 const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.location.hash = `/course/${course.id}`;
+  };
+
   return (
-    <a href="#" className="flex flex-col h-full group">
+    <a href={`#/course/${course.id}`} onClick={handleClick} className="flex flex-col h-full group">
       <div className="border border-gray-200 group-hover:shadow-lg transition-shadow duration-200 h-full flex flex-col">
         <img src={course.image} alt={course.title} className="w-full object-cover" />
         <div className="p-2 flex flex-col flex-grow">
