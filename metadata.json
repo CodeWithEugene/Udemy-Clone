@@ -1,0 +1,5 @@
+{
+  "name": "Udemy Clone",
+  "description": "A fully functional replica of the Udemy website homepage, built with React, TypeScript, and Tailwind CSS. It features a responsive layout, dynamic course displays, and a clean, modern user interface.",
+  "requestFramePermissions": []
+}
