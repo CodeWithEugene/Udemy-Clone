@@ -44,6 +44,7 @@ const Header: React.FC = () => {
                     <nav className="hidden lg:flex items-center space-x-2">
                         <a href="#" className="text-sm text-gray-700 hover:text-purple-600 px-3 py-2">Udemy Business</a>
                         <a href="#" className="text-sm text-gray-700 hover:text-purple-600 px-3 py-2">Teach on Udemy</a>
+                        <Link href="/my-learning" className="text-sm text-gray-700 hover:text-purple-600 px-3 py-2">My learning</Link>
                     </nav>
                     
                     <div className="flex items-center space-x-2">
@@ -70,6 +71,7 @@ const Header: React.FC = () => {
                         <a href="#" className="text-base text-gray-700 hover:text-purple-600">Categories</a>
                         <a href="#" className="text-base text-gray-700 hover:text-purple-600">Udemy Business</a>
                         <a href="#" className="text-base text-gray-700 hover:text-purple-600">Teach on Udemy</a>
+                        <Link href="/my-learning" className="text-base text-gray-700 hover:text-purple-600">My learning</Link>
                         <div className="flex space-x-2 pt-4">
                             <a href="#" className="flex-1 text-center px-4 py-2 font-bold border border-gray-900 text-gray-900 hover:bg-gray-100">Log in</a>
                             <a href="#" className="flex-1 text-center px-4 py-2 font-bold border border-gray-900 bg-gray-900 text-white">Sign up</a>

@@ -1,3 +1,13 @@
+export interface Lecture {
+  title: string;
+  duration: string;
+}
+
+export interface CourseContentSection {
+  sectionTitle: string;
+  lectures: Lecture[];
+}
+
 export interface Course {
   id: number;
   title: string;
@@ -17,10 +27,7 @@ export interface Course {
   requirements?: string[];
   longDescription?: string;
   instructorBio?: string;
-  courseContent?: {
-      sectionTitle: string;
-      lectures: { title: string; duration: string; }[]
-  }[];
+  courseContent?: CourseContentSection[];
 }
 
 export type IconType = 'search' | 'cart' | 'starFull' | 'starHalf' | 'starEmpty' | 'globe' | 'menu' | 'chevronLeft' | 'chevronRight' | 'play' | 'check' | 'alert' | 'closedCaption' | 'infinity' | 'mobile' | 'trophy' | 'plus' | 'minus' | 'heart' | 'share' | 'trash';

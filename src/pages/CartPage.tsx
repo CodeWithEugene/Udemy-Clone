@@ -49,7 +49,9 @@ const CartPage: React.FC = () => {
               <div className="bg-white p-6 border sticky top-24">
                 <h2 className="text-xl font-bold text-gray-600 mb-2">Total:</h2>
                 <p className="text-4xl font-black mb-4">{formatCurrency(cartTotal)}</p>
-                <Button variant="primary" size="lg" className="w-full">Checkout</Button>
+                <Link href="/checkout" className="block w-full">
+                    <Button variant="primary" size="lg" className="w-full">Checkout</Button>
+                </Link>
               </div>
             </div>
           )}

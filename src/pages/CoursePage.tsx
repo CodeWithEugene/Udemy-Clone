@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getCourseById } from '../api/courses';
 import { Course } from '../types';
 import Icon from '../components/common/Icon';
@@ -6,6 +6,8 @@ import StarRating from '../components/common/StarRating';
 import CourseSidebar from '../components/course/CourseSidebar';
 import CourseContentAccordion from '../components/course/CourseContentAccordion';
 import Link from '../router/Link';
+import { LearningContext } from '../contexts/LearningContext';
+import LearningView from '../components/course/LearningView';
 
 interface CoursePageProps {
   courseId: number;
@@ -15,11 +17,13 @@ const CoursePage: React.FC<CoursePageProps> = ({ courseId }) => {
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { isCoursePurchased } = useContext(LearningContext);
 
   useEffect(() => {
     const fetchCourse = async () => {
       try {
         setLoading(true);
+        setError(null);
         const fetchedCourse = await getCourseById(courseId);
         if (fetchedCourse) {
           setCourse(fetchedCourse);
@@ -47,6 +51,10 @@ const CoursePage: React.FC<CoursePageProps> = ({ courseId }) => {
         <Link href="/" className="mt-6 inline-block px-6 py-3 font-bold bg-gray-900 hover:bg-gray-800 text-white">Go to homepage</Link>
       </div>
     );
+  }
+
+  if (isCoursePurchased(course.id)) {
+      return <LearningView course={course} />;
   }
 
   return (
